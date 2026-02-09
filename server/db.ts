@@ -239,7 +239,7 @@ export async function upsertUser(data: InsertUser) {
   if (!db) throw new Error("Database not connected");
   
   const existing = await getUserByEmail(data.email);
-  if (existing && existing.length > 0) {
+  if (existing) {
     return db.update(users).set(data).where(eq(users.email, data.email)).returning();
   }
   return db.insert(users).values(data).returning();
