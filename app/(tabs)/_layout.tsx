@@ -99,6 +99,24 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="gearshape.fill" color={color} />,
         }}
       />
+
+      <Tabs.Screen
+        name="developer-dashboard"
+        options={{
+          title: "لوحة المطور",
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="lock.shield.fill" color={color} />,
+        }}
+      />
+
+      {/* Hidden screens */}
+      <Tabs.Screen name="license-dashboard" options={{ href: null }} />
+      <Tabs.Screen name="anti-ban-dashboard" options={{ href: null }} />
+      <Tabs.Screen name="anti-ban-ml-dashboard" options={{ href: null }} />
+      <Tabs.Screen name="anti-ban-monitoring" options={{ href: null }} />
+      <Tabs.Screen name="activation-screen" options={{ href: null }} />
+      <Tabs.Screen name="analytics" options={{ href: null }} />
+      <Tabs.Screen name="scheduler" options={{ href: null }} />
+      <Tabs.Screen name="setup" options={{ href: null }} />
     </Tabs>
   );
 }
