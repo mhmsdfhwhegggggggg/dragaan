@@ -69,13 +69,15 @@ export async function createUser(data: InsertUser) {
 export async function getUserByEmail(email: string) {
   const db = await getDb();
   if (!db) throw new Error("Database not connected");
-  return db.select().from(users).where(eq(users.email, email)).limit(1);
+  const result = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  return result[0] || null;
 }
 
 export async function getUserById(id: number) {
   const db = await getDb();
   if (!db) throw new Error("Database not connected");
-  return db.select().from(users).where(eq(users.id, id)).limit(1);
+  const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
+  return result[0] || null;
 }
 
 // Telegram Accounts
